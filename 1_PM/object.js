@@ -3,5 +3,27 @@
 // HINT: recursion may help here
 
 const hasFalsyValue = obj => {
-  return false;
+  for (let el of Object.values(obj)){
+    if (typeof el === "object"){
+      if (hasFalsyValue(el) === false){
+        return false
+      }
+    }
+    else {
+      if (!!el === false) {
+        return false
+      } 
+    }
+  }
+  return true;
 };
+
+const obj = {
+  name : "Jovi",
+  number : 1,
+  other: {
+    man: 0,
+  }
+}
+
+console.log(hasFalsyValue(obj))
