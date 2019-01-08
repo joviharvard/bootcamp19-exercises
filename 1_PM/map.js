@@ -3,13 +3,11 @@
 
 const arr = [0, 1, 2, 3, 4];
 
-const triple = el => {
-  return el*3
-};
+const triple = el => {return el*3};
 
 Array.prototype.map = function(fun) {
   r_arr = []
-  for (let el of arr){
+  for (let el of this){
     r_arr.push(fun(el))
   }
   return r_arr
